@@ -1,0 +1,171 @@
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ git add .
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ pre-commit
+Check Yaml...............................................................Passed
+Fix End of Files.........................................................Passed
+Trim Trailing Whitespace.................................................Passed
+Check for case conflicts.................................................Passed
+Check for merge conflicts................................................Passed
+Formating C files with Clang-Format......................................Passed
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$git branch develop
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ git checkout develop
+A	inc/leds.h
+A	project.yml
+A	src/leds.c
+A	test/support/.gitkeep
+A	test/test_leds.c
+Ya en 'develop'
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ ceedling
+
+
+Test 'test_leds.c'
+------------------
+Compiling test_leds_runner.c...
+Compiling test_leds.c...
+Compiling unity.c...
+Compiling leds.c...
+Compiling cmock.c...
+Linking test_leds.out...
+Running test_leds.out...
+
+--------------------
+OVERALL TEST SUMMARY
+--------------------
+TESTED:  9
+PASSED:  9
+FAILED:  0
+IGNORED: 0
+
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ pre-commit
+Check Yaml...............................................................Passed
+Fix End of Files.........................................................Passed
+Trim Trailing Whitespace.................................................Passed
+Check for case conflicts.................................................Passed
+Check for merge conflicts................................................Passed
+Formating C files with Clang-Format......................................Passed
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ git commit -m "actualizado"
+Check Yaml...............................................................Passed
+Fix End of Files.........................................................Passed
+Trim Trailing Whitespace.................................................Passed
+Check for case conflicts.................................................Passed
+Check for merge conflicts................................................Passed
+Formating C files with Clang-Format......................................Passed
+[develop 3bb9fe9] actualizado
+ 5 files changed, 605 insertions(+)
+ create mode 100644 inc/leds.h
+ create mode 100644 project.yml
+ create mode 100644 src/leds.c
+ create mode 100644 test/support/.gitkeep
+ create mode 100644 test/test_leds.c
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ git push -u origin develop
+Enumerando objetos: 14, listo.
+Contando objetos: 100% (14/14), listo.
+Compresión delta usando hasta 8 hilos
+Comprimiendo objetos: 100% (9/9), listo.
+Escribiendo objetos: 100% (11/11), 5.87 KiB | 2.94 MiB/s, listo.
+Total 11 (delta 2), reusado 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+remote:
+remote: Create a pull request for 'develop' on GitHub by visiting:
+remote:      https://github.com/cpatagon/testing-tp5/pull/new/develop
+remote:
+To github.com:cpatagon/testing-tp5.git
+ * [new branch]      develop -> develop
+Rama 'develop' configurada para hacer seguimiento a la rama remota 'develop' de 'origin'.
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ ceedling clobber gcov:all utils:gcov
+
+Clobbering all generated files...
+(For large projects, this task may take a long time to complete)
+
+
+
+Test 'test_leds.c'
+------------------
+Generating runner for test_leds.c...
+Compiling test_leds_runner.c...
+Compiling test_leds.c...
+Compiling unity.c...
+Compiling leds.c with coverage...
+Compiling cmock.c...
+Linking test_leds.out...
+Running test_leds.out...
+Creating gcov results report(s) in 'build/artifacts/gcov'... Done in 0.531 seconds.
+
+--------------------------
+GCOV: OVERALL TEST SUMMARY
+--------------------------
+TESTED:  9
+PASSED:  9
+FAILED:  0
+IGNORED: 0
+
+
+---------------------------
+GCOV: CODE COVERAGE SUMMARY
+---------------------------
+leds.c Lines executed:100.00% of 22
+leds.c No branches
+leds.c Calls executed:100.00% of 3
+
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ git add .
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ pre-commit
+Check Yaml...........................................(no files to check)Skipped
+Fix End of Files.....................................(no files to check)Skipped
+Trim Trailing Whitespace.............................(no files to check)Skipped
+Check for case conflicts.............................(no files to check)Skipped
+Check for merge conflicts............................(no files to check)Skipped
+Formating C files with Clang-Format..................(no files to check)Skipped
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ pre-commit
+Check Yaml...........................................(no files to check)Skipped
+Fix End of Files.....................................(no files to check)Skipped
+Trim Trailing Whitespace.............................(no files to check)Skipped
+Check for case conflicts.............................(no files to check)Skipped
+Check for merge conflicts............................(no files to check)Skipped
+Formating C files with Clang-Format..................(no files to check)Skipped
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ git commit -m "actualizado 2"
+Check Yaml...........................................(no files to check)Skipped
+Fix End of Files.....................................(no files to check)Skipped
+Trim Trailing Whitespace.............................(no files to check)Skipped
+Check for case conflicts.............................(no files to check)Skipped
+Check for merge conflicts............................(no files to check)Skipped
+Formating C files with Clang-Format..................(no files to check)Skipped
+En la rama develop
+Tu rama está actualizada con 'origin/develop'.
+
+nada para hacer commit, el árbol de trabajo está limpio
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ git push -u origin develop
+Rama 'develop' configurada para hacer seguimiento a la rama remota 'develop' de 'origin'.
+Everything up-to-date
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ git add .
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ git commit -m "automatizacion"
+Check Yaml...............................................................Passed
+Fix End of Files.........................................................Passed
+Trim Trailing Whitespace.................................................Passed
+Check for case conflicts.................................................Passed
+Check for merge conflicts................................................Passed
+Formating C files with Clang-Format..................(no files to check)Skipped
+[develop 1a2b094] automatizacion
+ 1 file changed, 55 insertions(+)
+ create mode 100644 .github/workflows/verifications.yml
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ push
+
+Orden «push» no encontrada. Quizá quiso decir:
+
+  la orden «pwsh» del paquete snap «powershell (7.4.1)»
+  la orden «pdsh» del paquete deb «pdsh (2.31-3build2)»
+  la orden «ppsh» del paquete deb «ppsh (1.9.5-1build3)»
+  la orden «posh» del paquete deb «posh (0.13.2)»
+  la orden «rush» del paquete deb «rush (1.8+dfsg-1.1)»
+
+Consulte «snap info <nombre del snap>» para ver más versiones.
+
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$ git push
+Enumerando objetos: 6, listo.
+Contando objetos: 100% (6/6), listo.
+Compresión delta usando hasta 8 hilos
+Comprimiendo objetos: 100% (3/3), listo.
+Escribiendo objetos: 100% (5/5), 1.02 KiB | 522.00 KiB/s, listo.
+Total 5 (delta 1), reusado 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:cpatagon/testing-tp5.git
+   3bb9fe9..1a2b094  develop -> develop
+(base) lgomez@meteo:~/Documentos/MAGISTER_UBA/Bimestre04/Testing/TP/TP5/testing-tp5$

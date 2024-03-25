@@ -1,8 +1,8 @@
 /*
- * Nombre del archivo: mi_archivo.c
- * Descripción: [Breve descripción del archivo]
+ * Nombre del archivo: leds.h
+ * Descripción:  archivo que contiene las funciones para manejar 16 bits de leds
  * Autor: Luis Gómez P.
- * Derechos de Autor: (C) 2023 [Tu nombre o el de tu organización]
+ * Derechos de Autor: (C) 2023 Curso de Testing para sistemas embebidos
  * Licencia: GNU General Public License v3.0
  *
  * Este programa es software libre: puedes redistribuirlo y/o modificarlo
@@ -22,8 +22,8 @@
  *
  */
 
-/** @file
- ** @brief
+/** @file leds.c
+ ** @brief archivo que contiene las funciones para manejar 16 bits de leds
  **/
 
 /* === Headers files inclusions =============================================================== */
@@ -31,18 +31,6 @@
 #include "leds.h"
 
 /* === Macros definitions ====================================================================== */
-
-/** @brief Valor representativo de un bit en alto.
- */
-#define BIT_HIGH 1
-
-/** @brief Estado inicial de un LED apagado.
- */
-#define LED_OFF 0
-
-/** @brief Estado inicial de un LED encendido.
- */
-#define LED_ON 1
 
 /** @brief Estado para encender todos los LEDs.
  */
@@ -101,7 +89,7 @@ static uint16_t * puntero;
  */
 void leds_init(uint16_t * puerto) {
     puntero = puerto;
-    *puntero = LED_OFF;
+    *puntero = LEDS_OFF;
 };
 
 /**
@@ -151,16 +139,27 @@ void leds_turn_off_all(void) {
 }
 
 /**
- * @brief Consultar el estado de un LED.
+ * @brief Consultar el estado encendido  de un LED.
  *
  * @param led Número del LED a consultar (1-n).
- * @return Estado del LED: 1 si está encendido, 0 si está apagado.
+ * @return Estado del LED: true si está encendido, false si está apagado.
  */
-int leds_status(int led) {
+bool leds_is_on(int led) {
     uint16_t mask = led_to_mask(led); // Crea la máscara para el LED específico.
-    return (*puntero & mask)
-               ? LED_ON
-               : LED_OFF; // Usa AND bit a bit para verificar si el LED está encendido.
+    return (*puntero & mask) ? true
+                             : false; // Usa AND bit a bit para verificar si el LED está encendido.
+}
+
+/**
+ * @brief Consultar el estado apagado de un LED.
+ *
+ * @param led Número del LED a consultar (1-n).
+ * @return Estado del LED: false si está encendido, true si está apagado.
+ */
+bool leds_is_off(int led) {
+    uint16_t mask = led_to_mask(led); // Crea la máscara para el LED específico.
+    return (*puntero & mask) ? false
+                             : true; // Usa AND bit a bit para verificar si el LED está apagado.
 }
 
 /* === End of documentation ==================================================================== */

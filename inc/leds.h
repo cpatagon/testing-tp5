@@ -1,9 +1,9 @@
 /*
- * Nombre del archivo: mi_archivo.c
- * Descripción: [Breve descripción del archivo]
- * Autor: Luis Gómez P.
- * Derechos de Autor: (C) 2023 [Tu nombre o el de tu organización]
- * Licencia: GNU General Public License v3.0
+ * Nombre del archivo: leds.h
+ * Descripción: Header para manejo de LEDs en microcontroladores STM32F429.
+ *              Proporciona funciones para inicializar, encender, apagar, y verificar el estado de
+ * los LEDs. Autor: Luis Gómez P. Derechos de Autor: (C) 2023 Luis Gómez Licencia: GNU General
+ * Public License v3.0
  *
  * Este programa es software libre: puedes redistribuirlo y/o modificarlo
  * bajo los términos de la Licencia Pública General GNU publicada por
@@ -22,16 +22,19 @@
  *
  */
 
-#include <stdint.h>
-
-#ifndef MAIN_H
-#define MAIN_H
-
-/** @file
- ** @brief
+/** @file  leds.h
+ ** @brief header encargado de presentar funciones encargadas de manejar leds
  **/
 
+#ifndef LEDS_H
+#define LEDS_H
+
+#include <stdint.h>
+#include <stdbool.h>
+
 /* === Headers files inclusions ================================================================ */
+
+#define LED_MAX_NUM 16 // Número máximo de LEDs soportados
 
 /* === Cabecera C++ ============================================================================ */
 
@@ -49,19 +52,22 @@ extern "C" {
 
 /**
  * @brief Inicializa el sistema de LEDs.
- * @param puerto Puntero al registro de control de los LEDs.
+ * @param puerto Puntero al registro de control de los LEDs (16 bits).
+ *
  */
 void leds_init(uint16_t * puerto);
 
 /**
  * @brief Enciende un LED específico.
- * @param led Número del LED que se desea encender.
+ * @param led Índice del LED que se desea encender (0 a LED_MAX_NUM - 1).
+ *
  */
 void leds_turn_on(int led);
 
 /**
  * @brief Apaga un LED específico.
- * @param led Número del LED que se desea apagar.
+ * @param led Índice del LED que se desea apagar (0 a LED_MAX_NUM - 1).
+ *
  */
 void leds_turn_off(int led);
 
@@ -76,9 +82,18 @@ void leds_turn_on_all(void);
 void leds_turn_off_all(void);
 
 /**
- * @brief consultar el estado de un LEDs.
+ * @brief Consulta el estado de un LED.
+ * @param led Índice del LED a consultar.
+ * @return true si el LED está encendido, false si está apagado o si el índice es inválido.
  */
-int leds_status(int led);
+bool leds_is_on(int led);
+
+/**
+ * @brief Consulta si un LED está apagado.
+ * @param led Índice del LED a consultar.
+ * @return true si el LED está apagado, false si está encendido o si el índice es inválido.
+ */
+bool leds_is_off(int led);
 
 /* === End of documentation ==================================================================== */
 
@@ -86,4 +101,4 @@ int leds_status(int led);
 }
 #endif
 
-#endif /* MAIN_H */
+#endif /* LEDS_H */
